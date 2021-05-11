@@ -9,8 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        Image("image")
+            .resizable()
+            .frame(height: 300)
+            .cornerRadius(30)
             .padding()
+            .contextMenu(ContextMenu(menuItems: {
+                VStack{
+                    Button(action: {
+                        print("Copy tapped")
+                    }) {
+                        HStack {
+                            Image(systemName: "doc.on.doc")
+                            Text("Copy")
+                        }
+                    }
+                    Button(action: {
+                        print("Share tapped")
+                    }) {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Share")
+                        }
+                    }
+                }
+            }))
     }
 }
 
